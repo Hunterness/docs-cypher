@@ -106,6 +106,19 @@ a|
 The column `propertyTypes` returned by the procedures link:{neo4j-docs-base-uri}/operations-manual/{page-version}/procedures/#procedure_db_schema_nodetypeproperties[`db.schema.nodeTypeProperties()`] and link:{neo4j-docs-base-uri}/operations-manual/{page-version}/procedures/#procedure_db_schema_reltypeproperties[`db.schema.relTypeProperties()`] previously returned a list of strings representing the potential Java types for a given property.
 It now returns a list of strings representing the possible Cypher Types the given property has.
 For all available Cypher types, see the section on xref::values-and-types/property-structural-constructed.adoc#types-synonyms[types and their synonyms].
+
+a|
+label:syntax[]
+label:updated[]
+[source, cypher, role="noheader"]
+----
+SHOW NODE PROPERTY UNIQUENESS CONSTRAINTS
+SHOW RELATIONSHIP PROPERTY UNIQUENESS CONSTRAINTS
+SHOW PROPERTY UNIQUENESS CONSTRAINTS
+----
+a|
+The constraint type keyword filtering for `SHOW CONSTRAINTS` now allow an optional keyword `PROPERTY` when filtering on the property uniqueness constraints.
+The constraint type column returned are also updated to return `NODE_PROPERTY_UNIQUENESS` and `RELATIONSHIP_PROPERTY_UNIQUENESS`.
 |===
 
 

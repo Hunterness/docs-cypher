@@ -119,6 +119,19 @@ SHOW PROPERTY UNIQUENESS CONSTRAINTS
 a|
 The constraint type keyword filtering for `SHOW CONSTRAINTS` now allow an optional keyword `PROPERTY` when filtering on the property uniqueness constraints.
 The constraint type column returned are also updated to return `NODE_PROPERTY_UNIQUENESS` and `RELATIONSHIP_PROPERTY_UNIQUENESS`.
+
+a|
+label:functionality[]
+label:updated[]
+[source, cypher, role="noheader"]
+----
+SHOW TRANSACTIONS YIELD startTime, clientAddress, outerTransactionId, currentQuery, currentQueryId, parameters, planner, runtime, indexes, currentQueryStartTime, currentQueryElapsedTime, currentQueryCpuTime, currentQueryIdleTime, currentQueryStatus
+----
+a|
+Several `SHOW TRANSACTIONS` columns have been updated.
+`startTime` and `currentQueryStartTime` now returns a `ZONED DATETIME` instead of a `STRING` representation of one.
+`clientAddress` and `outerTransactionId` returns `null` instead of empty `STRING` when unavailable.
+The current query related columns, `currentQuery`, `currentQueryId`, `parameters`, `planner`, `runtime`, `indexes`, `currentQueryStartTime`, `currentQueryElapsedTime`, `currentQueryCpuTime`, `currentQueryIdleTime`, `currentQueryStatus`, now return `null` when no query is executing.
 |===
 
 
